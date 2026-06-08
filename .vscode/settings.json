@@ -1,0 +1,43 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatex-unix",
+      "command": "lualatex",
+      "args": [
+        "--shell-escape",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {
+        "TEXINPUTS": "%DIR%:%DIR%/gregosheet:%DIR%/gregosheet-psalm:",
+        "LUAINPUTS": "%DIR%:%DIR%/gregosheet:%DIR%/gregosheet-psalm:"
+      }
+    },
+    {
+      "name": "lualatex-win",
+      "command": "lualatex",
+      "args": [
+        "--shell-escape",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    //{
+    //  "name": "LuaLaTeX (macOS/Linux)",
+    //  "tools": ["lualatex-unix"]
+    //},
+    {
+      "name": "LuaLaTeX (Windows)",
+      "tools": ["lualatex-win"]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "%DIR%/out"
+}
