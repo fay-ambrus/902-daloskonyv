@@ -1,40 +1,21 @@
 {
   "latex-workshop.latex.tools": [
     {
-      "name": "lualatex-unix",
-      "command": "lualatex",
+      "name": "lualatex",
+      "command": "/bin/bash",
       "args": [
-        "--shell-escape",
-        "-interaction=nonstopmode",
-        "-synctex=1",
-        "-output-directory=%OUTDIR%",
-        "%DOC%"
+        "%DIR%/build.sh",
+        "%DOC_EXT%"
       ],
-      "env": {
-        "TEXINPUTS": "%DIR%:%DIR%/gregosheet:%DIR%/gregosheet-psalm:",
-        "LUAINPUTS": "%DIR%:%DIR%/gregosheet:%DIR%/gregosheet-psalm:"
-      }
-    },
-    {
-      "name": "lualatex-win",
-      "command": "lualatex",
-      "args": [
-        "--shell-escape",
-        "-interaction=nonstopmode",
-        "-synctex=1",
-        "-output-directory=%OUTDIR%",
-        "%DOC%"
-      ],
+      //"env": {
+      //  "PATH": "/Users/efayamb/Repók/lilypond-2.26.0/bin:/usr/local/bin:/usr/bin:/bin:/Library/TeX/texbin"
+      //}
     }
   ],
   "latex-workshop.latex.recipes": [
-    //{
-    //  "name": "LuaLaTeX (macOS/Linux)",
-    //  "tools": ["lualatex-unix"]
-    //},
     {
-      "name": "LuaLaTeX (Windows)",
-      "tools": ["lualatex-win"]
+      "name": "LuaLaTeX",
+      "tools": ["lualatex"]
     }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
