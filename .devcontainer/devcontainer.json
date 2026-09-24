@@ -17,8 +17,5 @@
       }
     }
   },
-  "postCreateCommand": "lilypond --version && lualatex --version",
-  "mounts": [
-    "source=${localWorkspaceFolderBasename}-tmp-ly,target=/workspace/tmp-ly,type=volume"
-  ]
+  "postCreateCommand": "lilypond --version && lualatex --version"
 }
