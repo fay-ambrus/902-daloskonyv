@@ -126,9 +126,9 @@ Amikor elmentettél egy fájlt (`Ctrl+S`), a Source Control panelen megjelenik e
 1. **Jelöld ki, mit szeretnél elmenteni:** minden módosított fájl mellett van egy `+` ikon – kattints rá egyenként, vagy vidd az egeret a "Changes" felirat fölé, és kattints az ott megjelenő `+` ikonra, hogy egyszerre az összeset kijelöld.
 2. **Írj egy rövid, érthető leírást** a panel tetején lévő szövegmezőbe arról, mit változtattál (pl.: "Kaláka: Finálé hozzáadva").
 3. **Kattints a ✓ Commit gombra** a szövegmező alatt – ez elmenti a változtatást.
-4. **Kattints a "Sync Changes"** gombra (körkörös nyilak, a panel tetején) – ez tölti fel a változtatást a közös tárhelyre.
+4. **Kattints a "Push"** gombra (felfelé mutató nyil a "Pull" mellett) – ez tölti fel a változtatást a közös tárhelyre.
 
-**Első alkalommal**, amikor a "Sync Changes" gombra kattintasz, felugorhat egy böngészőablak, ami arra kér, hogy jelentkezz be a GitHub fiókoddal. Ez teljesen normális – jelentkezz be, engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz. Ezután a géped emlékezni fog rád, és többször nem kell újra bejelentkezned.
+**Első alkalommal**, amikor a Source Control pnalet használod, felugorhat egy böngészőablak, ami arra kér, hogy jelentkezz be a GitHub fiókoddal. Ez teljesen normális – jelentkezz be, engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz. Ezután a géped emlékezni fog rád, és többször nem kell újra bejelentkezned.
 
 ### 5.3. Összefoglalva – ez a lényeg
 
