@@ -1,12 +1,15 @@
 FROM texlive/texlive:latest
 
-# LilyPond (required by lyluatex's \lilypondfile), font tooling, and Git
+# LilyPond (required by lyluatex's \lilypondfile), font tooling, Git,
+# and inotify-tools (used to auto-rebuild when .ly files change, since
+# LaTeX Workshop's own dependency watcher does not track \lilypondfile).
 RUN apt-get update && apt-get install -y --no-install-recommends \
     lilypond \
     fontconfig \
     wget \
     ca-certificates \
     git \
+    inotify-tools \
     && rm -rf /var/lib/apt/lists/*
 
 # Sora font (used via \setmainfont{Sora} / fontspec)

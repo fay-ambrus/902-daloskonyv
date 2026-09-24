@@ -92,6 +92,7 @@ A projekt letöltéséhez (klónozáshoz) és a mások változtatásainak lehív
 
 4. Az első alkalommal ez eltarthat néhány percig – ekkor a Docker letölti és felépíti azt a "gépet", amiben minden LaTeX-eszköz megvan. Ezt csak egyszer kell megvárni, utána gyors lesz.
 5. Amikor elkészült, a bal oldali fájllistában látnod kell a projekt fájljait (pl. `902-daloskonyv.tex`).
+6. Felugorhat egy értesítés, ami megkérdezi, hogy engedélyezed-e egy háttérfolyamat elindítását ("Allow" / "Do you want to allow this task to run?"). Ez a folyamat figyeli a kottafájlok (`.ly`) változásait, hogy mentés után azok is automatikusan újrarenderelődjenek – kattints az **Allow** gombra.
 
 Ha ezt a lépést kihagyod, és a saját géped LaTeX-programjaival próbálod megnyitni/futtatni a fájlokat, valószínűleg hibákat fogsz kapni, mert hiányoznak róla a szükséges eszközök. Ezért fontos a konténerben dolgozni.
 
@@ -110,50 +111,35 @@ Ha egy dalhoz kotta is tartozik, azt a `kottak` mappában található `.ly` kite
 
 ## 5. Nagyon egyszerű Git útmutató
 
-A Git egy olyan eszköz, amivel nyomon tudjuk követni, ki mit változtatott, és biztonságosan tudunk együtt dolgozni ugyanazon a projekten. Nem kell mindent érteni belőle – az alábbi néhány parancs elég a mindennapi használathoz.
+A Git egy olyan eszköz, amivel nyomon tudjuk követni, ki mit változtatott, és biztonságosan tudunk együtt dolgozni ugyanazon a projekten. Nem kell mindent érteni belőle – ehhez a VS Code beépített, gombokkal kezelhető felületét fogjuk használni, a **Source Control** (Forráskezelés) panelt. Nincs szükség parancsok beírására.
 
-Ezeket a parancsokat a VS Code alján található **Terminal** ablakban írd be (ha nem látod, nyisd meg: **Terminal → New Terminal** felül a menüsorban). Mivel a konténerben a Git már eleve telepítve van, ez mindig működni fog, akkor is, ha a saját géped Git-telepítésével valami probléma lenne.
+A panel megnyitásához kattints a bal oldali sávban a harmadik ikonra (elágazó vonalakat formázó ikon), vagy nyomd meg: `Ctrl+Shift+G`.
 
 ### 5.1. Mielőtt elkezdenél dolgozni: hozd naprakészre a saját másolatodat
 
-```
-git pull
-```
-
-Ez letölti mások esetleges változtatásait, hogy ne dolgozz elavult fájlokon.
+A Source Control panel tetején található a **"..."** (More Actions) menü, vagy egy körkörös nyíl ikon ("Sync Changes" / "Pull"). Munka megkezdése előtt kattints erre, hogy letöltsd mások esetleges változtatásait, és ne dolgozz elavult fájlokon.
 
 ### 5.2. Miután befejezted a munkát: mentsd el és töltsd fel a változtatásokat
 
-Három lépés van, mindig ebben a sorrendben:
+Amikor elmentettél egy fájlt (`Ctrl+S`), a Source Control panelen megjelenik egy lista a módosított fájlokról, "Changes" felirat alatt.
 
-**1. lépés – jelöld ki, mely fájlokat szeretnéd elmenteni:**
-```
-git add .
-```
-(A pont azt jelenti, hogy "minden módosított fájlt".)
+1. **Jelöld ki, mit szeretnél elmenteni:** minden módosított fájl mellett van egy `+` ikon – kattints rá egyenként, vagy vidd az egeret a "Changes" felirat fölé, és kattints az ott megjelenő `+` ikonra, hogy egyszerre az összeset kijelöld.
+2. **Írj egy rövid, érthető leírást** a panel tetején lévő szövegmezőbe arról, mit változtattál (pl.: "Kaláka: Finálé hozzáadva").
+3. **Kattints a pipa (✓) ikonra** a szövegmező felett – ez elmenti a változtatást (ez felel meg a "commit"-nak).
+4. **Kattints a "Sync Changes"** gombra (körkörös nyilak, a panel tetején) – ez tölti fel a változtatást a közös tárhelyre.
 
-**2. lépés – írj egy rövid, érthető leírást arról, mit változtattál:**
-```
-git commit -m "Ide írd, mit csináltál, pl.: Kaláka: Finálé hozzáadva"
-```
+**Első alkalommal**, amikor a "Sync Changes" gombra kattintasz, felugorhat egy böngészőablak, ami arra kér, hogy jelentkezz be a GitHub fiókoddal. Ez teljesen normális – jelentkezz be, engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz. Ezután a géped emlékezni fog rád, és többször nem kell újra bejelentkezned.
 
-**3. lépés – töltsd fel a változtatást a közös tárhelyre:**
-```
-git push
-```
+### 5.3. Összefoglalva – ez a lényeg
 
-**Első alkalommal**, amikor `git push`-t futtatsz, felugorhat egy böngészőablak, ami arra kér, hogy jelentkezz be a GitHub fiókoddal. Ez teljesen normális – jelentkezz be, engedélyezd a hozzáférést, majd térj vissza a Git Bash ablakhoz. Ezután a géped emlékezni fog rád, és többször nem kell újra bejelentkezned.
-
-### 5.3. Összefoglalva – ez a négy parancs a lényeg
-
-| Parancs | Mit csinál |
+| Gomb / lépés | Mit csinál |
 |---|---|
-| `git pull` | Letölti mások változtatásait |
-| `git add .` | Kijelöli a te változtatásaidat mentésre |
-| `git commit -m "..."` | Elmenti egy leírással, mit csináltál |
-| `git push` | Feltölti a változtatást mindenki számára |
+| Körkörös nyíl / "Sync Changes" (munka előtt) | Letölti mások változtatásait |
+| `+` ikon a fájlok mellett | Kijelöli a te változtatásaidat mentésre |
+| Pipa (✓) ikon, üzenettel | Elmenti egy leírással, mit csináltál |
+| "Sync Changes" (munka után) | Feltölti a változtatást mindenki számára |
 
-**Tipp:** Mindig `git pull`-lal kezdj, és `git push`-sal zárj, ha végeztél egy munkamenettel. Ha valamiben elakadsz, nyugodtan kérdezz – a Git parancsok nem törölnek semmit visszavonhatatlanul, amíg nem használsz különleges, "erőltetett" parancsokat.
+**Tipp:** Mindig szinkronizálással (Pull / Sync Changes) kezdj, és szinkronizálással zárj, ha végeztél egy munkamenettel. Ha valamiben elakadsz, nyugodtan kérdezz – a Git nem töröl semmit visszavonhatatlanul, amíg nem használsz különleges, "erőltetett" beállításokat.
 
 ---
 
@@ -172,4 +158,4 @@ Ez normális – a konténer felépítése (a LaTeX-eszközök letöltése) néh
 Ellenőrizd, hogy tényleg a konténerben nyitottad meg a projektet (a VS Code bal alsó sarkában "Dev Container" felirat látható, ha igen).
 
 **`git push` közben felugrik egy böngészőablak, és bejelentkezést kér.**
-Ez normális, és csak az első alkalommal fordul elő. Jelentkezz be a GitHub fiókoddal (vagy hozz létre egyet, ha még nincs), engedélyezd a hozzáférést, majd térj vissza a terminálhoz – a feltöltés ezután automatikusan folytatódik. A géped ezután emlékezni fog rád, így legközelebb nem kér újra bejelentkezést.
+Ez normális, és csak az első alkalommal fordul elő. Jelentkezz be a GitHub fiókoddal (vagy hozz létre egyet, ha még nincs), engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz – a feltöltés ezután automatikusan folytatódik. A géped ezután emlékezni fog rád, így legközelebb nem kér újra bejelentkezést.
