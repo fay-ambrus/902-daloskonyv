@@ -111,7 +111,7 @@ Ha egy dalhoz kotta is tartozik, azt a `kottak` mappában található `.ly` kite
 
 ## 5. Nagyon egyszerű Git útmutató
 
-A Git egy olyan eszköz, amivel nyomon tudjuk követni, ki mit változtatott, és biztonságosan tudunk együtt dolgozni ugyanazon a projekten. Nem kell mindent érteni belőle – ehhez a VS Code beépített, gombokkal kezelhető felületét fogjuk használni, a **Source Control** (Forráskezelés) panelt. Nincs szükség parancsok beírására.
+A Git egy olyan eszköz, amivel nyomon tudjuk követni, ki mit változtatott, és biztonságosan tudunk együtt dolgozni ugyanazon a projekten. Nem kell mindent érteni belőle. A VS Code beépített, gombokkal kezelhető felületét fogjuk használni, a **Source Control** (Forráskezelés) panelt. Nincs szükség parancsok beírására.
 
 A panel megnyitásához kattints a bal oldali sávban a harmadik ikonra (elágazó vonalakat formázó ikon), vagy nyomd meg: `Ctrl+Shift+G`.
 
@@ -130,17 +130,6 @@ Amikor elmentettél egy fájlt (`Ctrl+S`), a Source Control panelen megjelenik e
 
 **Első alkalommal**, amikor a Source Control pnalet használod, felugorhat egy böngészőablak, ami arra kér, hogy jelentkezz be a GitHub fiókoddal. Ez teljesen normális – jelentkezz be, engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz. Ezután a géped emlékezni fog rád, és többször nem kell újra bejelentkezned.
 
-### 5.3. Összefoglalva – ez a lényeg
-
-| Gomb / lépés | Mit csinál |
-|---|---|
-| Körkörös nyíl / "Sync Changes" (munka előtt) | Letölti mások változtatásait |
-| `+` ikon a fájlok mellett | Kijelöli a te változtatásaidat mentésre |
-| Pipa (✓) ikon, üzenettel | Elmenti egy leírással, mit csináltál |
-| "Sync Changes" (munka után) | Feltölti a változtatást mindenki számára |
-
-**Tipp:** Mindig szinkronizálással (Pull / Sync Changes) kezdj, és szinkronizálással zárj, ha végeztél egy munkamenettel. Ha valamiben elakadsz, nyugodtan kérdezz – a Git nem töröl semmit visszavonhatatlanul, amíg nem használsz különleges, "erőltetett" beállításokat.
-
 ---
 
 ## 6. Gyakori kérdések
@@ -156,6 +145,3 @@ Ez normális – a konténer felépítése (a LaTeX-eszközök letöltése) néh
 
 **A PDF nem frissül mentés után.**
 Ellenőrizd, hogy tényleg a konténerben nyitottad meg a projektet (a VS Code bal alsó sarkában "Dev Container" felirat látható, ha igen).
-
-**`git push` közben felugrik egy böngészőablak, és bejelentkezést kér.**
-Ez normális, és csak az első alkalommal fordul elő. Jelentkezz be a GitHub fiókoddal (vagy hozz létre egyet, ha még nincs), engedélyezd a hozzáférést, majd térj vissza a VS Code-hoz – a feltöltés ezután automatikusan folytatódik. A géped ezután emlékezni fog rád, így legközelebb nem kér újra bejelentkezést.
