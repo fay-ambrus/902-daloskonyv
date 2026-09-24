@@ -1,0 +1,24 @@
+{
+  "name": "902-daloskonyv (LaTeX)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ],
+      "settings": {
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.view.pdf.viewer": "tab"
+      }
+    }
+  },
+  "postCreateCommand": "lilypond --version && lualatex --version",
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-tmp-ly,target=/workspace/tmp-ly,type=volume"
+  ]
+}
